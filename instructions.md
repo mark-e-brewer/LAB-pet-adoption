@@ -1,4 +1,4 @@
-## Requirements - Part 1: Describing Data 
++## Requirements - Part 1: Describing Data 
 
 As a user, I want to see a listing of all available pets. Each pet should have a card that has all this data:
 - id
