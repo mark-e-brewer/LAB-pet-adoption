@@ -1,9 +1,16 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   background-color: lightblue;
 }
+
+#content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 
 .card {
   border-radius: 0px;
