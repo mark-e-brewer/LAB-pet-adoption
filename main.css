@@ -1,8 +1,29 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: #ffe6cc;
+}
+
+#card-div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.card {
+flex-basis: 50%;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+
+}
+
+.topButtons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+padding-top: 5px;
+padding-bottom: 6px;
 }
 
 .cats {
@@ -11,7 +32,7 @@ body {
   margin-left:15px ;
   margin-right:15px;
   border-radius: 10px;
-  border-color: #ffe6cc;
+  border-color: white;
 }
 
 .dogs {
@@ -19,7 +40,7 @@ body {
   margin-left:15px ;
   margin-right:15px;
   border-radius: 10px;
-  border-color: #ffe6cc;
+  border-color: white;
 }
 
 .dinos {
@@ -27,7 +48,7 @@ body {
   margin-left:15px ;
   margin-right:15px;
   border-radius: 10px;
-  border-color: #ffe6cc;
+  border-color: white;
 }
 
 .all {
@@ -36,21 +57,5 @@ body {
   margin-left:15px ;
   border-radius: 10px;
   margin-right:15px;
-  border-color: #ffe6cc;
-}
-
-#content {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-
-.card {
-  border-radius: 0px;
-}
-
-.petName {
-  border-radius: 0px;
-  background-color: lightGrey;
+  border-color: white;
 }
