@@ -256,11 +256,11 @@ for (const pet of pets) {
   domString +=   `<div class="card" style="width: 18rem;">
   <img src="${pet.imageUrl}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="petName">${pet.name}</h5>
+    <h4 class="petName">${pet.name}</h4>
     <p class="petType">${pet.type}</p>
     <p class="petColor">${pet.color}</p>
-    <p class="special">${pet.specialSkill}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="special"s>${pet.specialSkill}</p>
+    <button class="deleteBtn">Delete</button>
   </div>
 </div>`;
 }
@@ -304,40 +304,44 @@ allBtn.addEventListener('click', () => {
 cardsOnDom(pets)
 })
 
+//Submit functionality bellow
 
-//   let catsArray = [];
-// for(let i=0;i<pets.length; i++) {
-//   if(pets[i].type === 'cat') {
-//     catsArray.push(pets[i])
+const createPet = (event) => {
+  event.preventDefault();
+  // grab the values from form
+  const name = document.querySelector("#name");
+  const type = document.querySelector("#type");
+  const color = document.querySelector("#color");
+  const specialSkill = document.querySelector("#specialSkill")
+  const imageUrl = document.querySelector("#imageUrl");
+  // Create an object from values
+  const newPet = {
+    name: name.value,
+    type: type.value,
+    color: color.value,
+    specialSkill: specialSkill.value,
+    imageUrl: imageUrl.value
+  };
+  // push to team array
+  pets.push(newPet);
+  // rerender with new team
+  cardsOnDom(pets);
+};
+
+const submitButton = document.querySelector('#form-submit');
+submitButton.addEventListener('click', createPet);
+
+// app.addEventListener('click', (event) => {
+//   if (event.target.id.includes('delete')){
+//     const [throwAway, petId] = event.target.id.split('--');
+//     const indexOfPet = pets.findIndex(
+//       (object) => object.id === Number(petId)
+//     );
+//     pets.splice(indexOfPet, 1);
 //   }
+//   cardsOnDom(pets)
+// });
+// const startApp = () => {
+//   cardsOnDom(pets)
 // }
-
-// catsBtn.addEventListener('click', () => {
-//   cardsOnDom(catsArray)
-// })
-
-// let dogsArray = [];
-// for(let i=0;i<pets.length; i++) {
-//   if(pets[i].type === 'dog') {
-//     dogsArray.push(pets[i])
-//   }
-// }
-
-// dogsBtn.addEventListener('click', () => {
-//   cardsOnDom(dogsArray)
-// })
-
-// let dinosArray = [];
-// for(let i=0;i<pets.length; i++) {
-//   if(pets[i].type === 'dino') {
-//     dinosArray.push(pets[i])
-//   }
-// }
-
-// dinosBtn.addEventListener('click', () => {
-//   cardsOnDom(dinosArray)
-// })
-
-// allBtn.addEventListener('click', () => {
-// cardsOnDom(pets)
-// })
+// startApp()
