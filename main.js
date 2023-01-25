@@ -260,7 +260,7 @@ for (const pet of pets) {
     <p class="petType">${pet.type}</p>
     <p class="petColor">${pet.color}</p>
     <p class="special"s>${pet.specialSkill}</p>
-    <button class="deleteBtn">Delete</button>
+    <button class="delete" id='delete--${pet.id}'>Delete</button>
   </div>
 </div>`;
 }
@@ -305,6 +305,7 @@ cardsOnDom(pets)
 })
 
 //Submit functionality bellow
+const form = document.querySelector('form');
 
 const createPet = (event) => {
   event.preventDefault();
@@ -326,22 +327,22 @@ const createPet = (event) => {
   pets.push(newPet);
   // rerender with new team
   cardsOnDom(pets);
+  form.reset();
 };
 
 const submitButton = document.querySelector('#form-submit');
 submitButton.addEventListener('click', createPet);
+ //delete functionality bellow
 
-// app.addEventListener('click', (event) => {
-//   if (event.target.id.includes('delete')){
-//     const [throwAway, petId] = event.target.id.split('--');
-//     const indexOfPet = pets.findIndex(
-//       (object) => object.id === Number(petId)
-//     );
-//     pets.splice(indexOfPet, 1);
-//   }
-//   cardsOnDom(pets)
-// });
-// const startApp = () => {
-//   cardsOnDom(pets)
-// }
-// startApp()
+app.addEventListener('click', (event) => {
+  if (event.target.id.includes("delete")){
+    const [throwAway, petId] = event.target.id.split('--');
+    const indexOfPet = pets.findIndex(obj => obj.id === Number(petId));
+    pets.splice(indexOfPet, 1);
+  }
+  cardsOnDom(pets)
+});
+const startApp = () => {
+  cardsOnDom(pets)
+}
+startApp();
